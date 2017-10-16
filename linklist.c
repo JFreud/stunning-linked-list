@@ -26,8 +26,6 @@ struct node * insert_front (struct node * exist_node, int val) {
 
 struct node * free_list(struct node * start){
   struct node * temp;
-  struct node * beginning; //in order to return pointer to beginning of list
-  beginning = start;
 
   while (start -> next) {
     temp = start;
@@ -35,7 +33,7 @@ struct node * free_list(struct node * start){
     free (temp);
   }
   free(start); //free last node
-  return beginning;
+  return NULL;
 }
 
 struct node * create_link(val){ //in order to initialize first element
@@ -62,7 +60,7 @@ int main() {
   print_list(negative); //should be [5, 10, 15]
 
 
-  printf("\nAfter free list, the start pointer points to NULL: %s\n", free_list(negative)? "True":"False");
+  printf("\nAfter free list, the start pointer points to NULL: %s\n", free_list(negative)? "False":"True");
 
 
 
